@@ -10,8 +10,13 @@ void swapVar(int *a, int *b)
 
 int main()
 {
-    int a = 10;
-    int b = 20;
+    int a;
+    int b;
+
+    cout << "Input nilai pertama: ";
+    cin >> a;
+    cout << "Input nilai kedua: ";
+    cin >> b;
 
     cout << "Sebelum Ditukar: " << a << "|" << b << endl;
 
