@@ -125,6 +125,7 @@ void merge(Kereta *dataKeberangkatan[], int left, int mid, int right, int mode)
             dataKeberangkatan[k] = R[j];
             j++;
         }
+        k++;
     }
 
     while (i < n1)
@@ -209,7 +210,7 @@ void cariRute(Kereta *dataKeberangkatan[], int jumlahData)
 
 int jumpSearch(Kereta *dataKeberangkatan[], int n, int target)
 {
-    int step = (int)sqrt((double)n);
+    int step = sqrt(n);
     int prev = 0;
 
     // Iterasi 1 (fase lompatan):
@@ -217,7 +218,7 @@ int jumpSearch(Kereta *dataKeberangkatan[], int n, int target)
     // Jika nilainya < target, maka pindah ke blok berikutnya (prev = step)
     // Ulangi proses sampai menemukan blok dimana nilai >= target
 
-    while (dataKeberangkatan[step - 1]->nomor < target)
+    while (prev < n && dataKeberangkatan[min(step, n) - 1]->nomor < target)
     {
         prev = step;
         step += (int)sqrt((double)n);
